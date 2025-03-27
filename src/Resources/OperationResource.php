@@ -9,6 +9,7 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use JeffersonGoncalves\Filament\OneTimeOperations\Resources\OperationResource\Pages;
 use JeffersonGoncalves\Filament\OneTimeOperations\Support\Utils;
+use TimoKoerber\LaravelOneTimeOperations\Models\Operation;
 
 class OperationResource extends Resource
 {
@@ -20,13 +21,13 @@ class OperationResource extends Resource
                     ->description()
                     ->columns()
                     ->schema([
-                        Infolists\Components\IconEntry::make('active')
-                            ->label(__('filament-one-time-operations::filament-one-time-operations.column.active'))
-                            ->boolean(),
-                        Infolists\Components\TextEntry::make('name')
+                        Infolists\Components\IconEntry::make('name')
                             ->label(__('filament-one-time-operations::filament-one-time-operations.column.name')),
-                        Infolists\Components\TextEntry::make('text')
-                            ->label(__('filament-one-time-operations::filament-one-time-operations.column.text')),
+                        Infolists\Components\TextEntry::make('dispatched')
+                            ->label(__('filament-one-time-operations::filament-one-time-operations.column.dispatched'))
+                            ->formatStateUsing(fn(Operation $resource) => __('filament-one-time-operations::filament-one-time-operations.value.' . $resource->dispatched)),
+                        Infolists\Components\TextEntry::make('processed_at')
+                            ->label(__('filament-one-time-operations::filament-one-time-operations.column.processed_at')),
                     ]),
             ]);
     }
@@ -35,47 +36,30 @@ class OperationResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\IconColumn::make('active')
-                    ->label(__('filament-one-time-operations::filament-one-time-operations.column.active'))
-                    ->boolean(),
-                Tables\Columns\TextColumn::make('name')
+                Tables\Columns\IconColumn::make('name')
                     ->label(__('filament-one-time-operations::filament-one-time-operations.column.name'))
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('phone')
-                    ->label(__('filament-one-time-operations::filament-one-time-operations.column.phone'))
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('text')
-                    ->label(__('filament-one-time-operations::filament-one-time-operations.column.text'))
-                    ->searchable(),
-                Tables\Columns\ImageColumn::make('image')
-                    ->label(__('filament-one-time-operations::filament-one-time-operations.column.image'))
-                    ->disk(config('one-time-operations.disk')),
-                Tables\Columns\TextColumn::make('created_at')
-                    ->label(__('filament-one-time-operations::filament-one-time-operations.column.created_at'))
+                    ->boolean(),
+                Tables\Columns\TextColumn::make('dispatched')
+                    ->label(__('filament-one-time-operations::filament-one-time-operations.column.dispatched'))
+                    ->formatStateUsing(fn(Operation $resource) => __('filament-one-time-operations::filament-one-time-operations.value.' . $resource->dispatched)),
+                Tables\Columns\TextColumn::make('processed_at')
+                    ->label(__('filament-one-time-operations::filament-one-time-operations.column.processed_at'))
                     ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('updated_at')
-                    ->label(__('filament-one-time-operations::filament-one-time-operations.column.updated_at'))
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
+                    ->sortable(),
             ])
             ->filters([
                 //
             ])
             ->actions([
                 Tables\Actions\ViewAction::make(),
-                Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),
             ]);
     }
 
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListWhatsappAgents::route('/'),
-            'view' => Pages\ViewWhatsappAgent::route('/{record}'),
+            'index' => Pages\ListOperations::route('/'),
+            'view' => Pages\ViewOperation::route('/{record}'),
         ];
     }
 
@@ -86,7 +70,7 @@ class OperationResource extends Resource
 
     public static function getModel(): string
     {
-        return Utils::getWhatsappAgentModel();
+        return Utils::getOperationModel();
     }
 
     public static function getModelLabel(): string

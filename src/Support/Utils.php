@@ -10,7 +10,7 @@ class Utils
     public static function isResourcePublished(Panel $panel): bool
     {
         return str(string: collect(value: $panel->getResources())->values()->join(','))
-            ->contains('WhatsappAgentResource');
+            ->contains('OperationResource');
     }
 
     public static function getResourceCluster(): ?string
@@ -18,7 +18,7 @@ class Utils
         return config('filament-one-time-operations.operation_resource.cluster', null);
     }
 
-    public static function getWhatsappAgentModel(): string
+    public static function getOperationModel(): string
     {
         return config('filament-one-time-operations.operation_resource.model', Operation::class);
     }
