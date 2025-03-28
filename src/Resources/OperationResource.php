@@ -25,7 +25,7 @@ class OperationResource extends Resource
                             ->label(__('filament-one-time-operations::filament-one-time-operations.column.name')),
                         Infolists\Components\TextEntry::make('dispatched')
                             ->label(__('filament-one-time-operations::filament-one-time-operations.column.dispatched'))
-                            ->formatStateUsing(fn (Operation $resource) => __('filament-one-time-operations::filament-one-time-operations.value.'.$resource->getAttributeValue('dispatched'))),
+                            ->formatStateUsing(fn (Operation $resource) => __('filament-one-time-operations::filament-one-time-operations.values.'.$resource->getAttributeValue('dispatched'))),
                         Infolists\Components\TextEntry::make('processed_at')
                             ->label(__('filament-one-time-operations::filament-one-time-operations.column.processed_at')),
                     ]),
@@ -41,7 +41,8 @@ class OperationResource extends Resource
                     ->boolean(),
                 Tables\Columns\TextColumn::make('dispatched')
                     ->label(__('filament-one-time-operations::filament-one-time-operations.column.dispatched'))
-                    ->formatStateUsing(fn (Operation $resource) => __('filament-one-time-operations::filament-one-time-operations.value.'.$resource->getAttributeValue('dispatched'))),
+                    ->badge()
+                    ->formatStateUsing(fn (Operation $resource) => __('filament-one-time-operations::filament-one-time-operations.values.'.$resource->getAttributeValue('dispatched'))),
                 Tables\Columns\TextColumn::make('processed_at')
                     ->label(__('filament-one-time-operations::filament-one-time-operations.column.processed_at'))
                     ->dateTime()
@@ -50,8 +51,8 @@ class OperationResource extends Resource
             ->filters([
                 Tables\Filters\SelectFilter::make('dispatched')
                     ->options([
-                        Operation::DISPATCHED_ASYNC => __('filament-one-time-operations::filament-one-time-operations.value.async'),
-                        Operation::DISPATCHED_SYNC => __('filament-one-time-operations::filament-one-time-operations.value.sync'),
+                        Operation::DISPATCHED_ASYNC => __('filament-one-time-operations::filament-one-time-operations.values.async'),
+                        Operation::DISPATCHED_SYNC => __('filament-one-time-operations::filament-one-time-operations.values.sync'),
                     ]),
             ])
             ->actions([
