@@ -21,7 +21,7 @@ class OperationResource extends Resource
                     ->description()
                     ->columns()
                     ->schema([
-                        Infolists\Components\IconEntry::make('name')
+                        Infolists\Components\TextEntry::make('name')
                             ->label(fn () => __('filament-one-time-operations::filament-one-time-operations.column.name')),
                         Infolists\Components\TextEntry::make('dispatched')
                             ->label(fn () => __('filament-one-time-operations::filament-one-time-operations.column.dispatched'))
@@ -36,7 +36,7 @@ class OperationResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\IconColumn::make('name')
+                Tables\Columns\TextColumn::make('name')
                     ->label(fn () => __('filament-one-time-operations::filament-one-time-operations.column.name')),
                 Tables\Columns\TextColumn::make('dispatched')
                     ->label(fn () => __('filament-one-time-operations::filament-one-time-operations.column.dispatched'))
