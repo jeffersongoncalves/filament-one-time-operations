@@ -22,12 +22,12 @@ class OperationResource extends Resource
                     ->columns()
                     ->schema([
                         Infolists\Components\IconEntry::make('name')
-                            ->label(fn() => __('filament-one-time-operations::filament-one-time-operations.column.name')),
+                            ->label(fn () => __('filament-one-time-operations::filament-one-time-operations.column.name')),
                         Infolists\Components\TextEntry::make('dispatched')
-                            ->label(fn() => __('filament-one-time-operations::filament-one-time-operations.column.dispatched'))
-                            ->formatStateUsing(fn(Operation $resource) => __('filament-one-time-operations::filament-one-time-operations.values.' . $resource->getAttributeValue('dispatched'))),
+                            ->label(fn () => __('filament-one-time-operations::filament-one-time-operations.column.dispatched'))
+                            ->formatStateUsing(fn (Operation $resource) => __('filament-one-time-operations::filament-one-time-operations.values.'.$resource->getAttributeValue('dispatched'))),
                         Infolists\Components\TextEntry::make('processed_at')
-                            ->label(fn() => __('filament-one-time-operations::filament-one-time-operations.column.processed_at')),
+                            ->label(fn () => __('filament-one-time-operations::filament-one-time-operations.column.processed_at')),
                     ]),
             ]);
     }
@@ -37,20 +37,20 @@ class OperationResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\IconColumn::make('name')
-                    ->label(fn() => __('filament-one-time-operations::filament-one-time-operations.column.name'))
+                    ->label(fn () => __('filament-one-time-operations::filament-one-time-operations.column.name'))
                     ->boolean(),
                 Tables\Columns\TextColumn::make('dispatched')
-                    ->label(fn() => __('filament-one-time-operations::filament-one-time-operations.column.dispatched'))
+                    ->label(fn () => __('filament-one-time-operations::filament-one-time-operations.column.dispatched'))
                     ->badge()
-                    ->formatStateUsing(fn(Operation $resource) => __('filament-one-time-operations::filament-one-time-operations.values.' . $resource->getAttributeValue('dispatched'))),
+                    ->formatStateUsing(fn (Operation $resource) => __('filament-one-time-operations::filament-one-time-operations.values.'.$resource->getAttributeValue('dispatched'))),
                 Tables\Columns\TextColumn::make('processed_at')
-                    ->label(fn() => __('filament-one-time-operations::filament-one-time-operations.column.processed_at'))
+                    ->label(fn () => __('filament-one-time-operations::filament-one-time-operations.column.processed_at'))
                     ->dateTime()
                     ->sortable(),
             ])
             ->filters([
                 Tables\Filters\SelectFilter::make('dispatched')
-                    ->options(fn() => [
+                    ->options(fn () => [
                         Operation::DISPATCHED_ASYNC => __('filament-one-time-operations::filament-one-time-operations.values.async'),
                         Operation::DISPATCHED_SYNC => __('filament-one-time-operations::filament-one-time-operations.values.sync'),
                     ]),
