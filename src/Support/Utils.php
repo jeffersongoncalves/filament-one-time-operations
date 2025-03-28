@@ -40,7 +40,7 @@ class Utils
 
     public static function getResourceSlug(): string
     {
-        return (string)config('filament-one-time-operations.operation_resource.slug');
+        return (string) config('filament-one-time-operations.operation_resource.slug');
     }
 
     public static function isResourceNavigationBadgeEnabled(): bool

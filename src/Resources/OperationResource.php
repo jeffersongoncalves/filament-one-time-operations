@@ -25,7 +25,7 @@ class OperationResource extends Resource
                             ->label(__('filament-one-time-operations::filament-one-time-operations.column.name')),
                         Infolists\Components\TextEntry::make('dispatched')
                             ->label(__('filament-one-time-operations::filament-one-time-operations.column.dispatched'))
-                            ->formatStateUsing(fn(Operation $resource) => __('filament-one-time-operations::filament-one-time-operations.value.' . $resource->dispatched)),
+                            ->formatStateUsing(fn (Operation $resource) => __('filament-one-time-operations::filament-one-time-operations.value.'.$resource->dispatched)),
                         Infolists\Components\TextEntry::make('processed_at')
                             ->label(__('filament-one-time-operations::filament-one-time-operations.column.processed_at')),
                     ]),
@@ -41,7 +41,7 @@ class OperationResource extends Resource
                     ->boolean(),
                 Tables\Columns\TextColumn::make('dispatched')
                     ->label(__('filament-one-time-operations::filament-one-time-operations.column.dispatched'))
-                    ->formatStateUsing(fn(Operation $resource) => __('filament-one-time-operations::filament-one-time-operations.value.' . $resource->dispatched)),
+                    ->formatStateUsing(fn (Operation $resource) => __('filament-one-time-operations::filament-one-time-operations.value.'.$resource->dispatched)),
                 Tables\Columns\TextColumn::make('processed_at')
                     ->label(__('filament-one-time-operations::filament-one-time-operations.column.processed_at'))
                     ->dateTime()

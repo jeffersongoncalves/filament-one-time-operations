@@ -21,7 +21,6 @@ return [
     'infolist.dispatched' => 'Dispatched',
     'infolist.processed_at' => 'Processed At',
 
-
     /*
     |--------------------------------------------------------------------------
     | Values Dispatched
