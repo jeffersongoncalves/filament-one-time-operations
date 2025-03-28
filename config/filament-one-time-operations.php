@@ -9,6 +9,6 @@ return [
         'should_register_navigation' => true,
         'navigation_badge' => true,
         'navigation_sort' => -1,
-        'slug' => 'operations/operation',
+        'slug' => 'settings/operation',
     ],
 ];
