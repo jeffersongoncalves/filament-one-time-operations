@@ -48,7 +48,11 @@ class OperationResource extends Resource
                     ->sortable(),
             ])
             ->filters([
-                //
+                Tables\Filters\SelectFilter::make('dispatched')
+                    ->options([
+                        Operation::DISPATCHED_ASYNC => __('filament-one-time-operations::filament-one-time-operations.value.async'),
+                        Operation::DISPATCHED_SYNC => __('filament-one-time-operations::filament-one-time-operations.value.sync'),
+                    ]),
             ])
             ->actions([
                 Tables\Actions\ViewAction::make(),
