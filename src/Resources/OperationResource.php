@@ -37,8 +37,7 @@ class OperationResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\IconColumn::make('name')
-                    ->label(fn () => __('filament-one-time-operations::filament-one-time-operations.column.name'))
-                    ->boolean(),
+                    ->label(fn () => __('filament-one-time-operations::filament-one-time-operations.column.name')),
                 Tables\Columns\TextColumn::make('dispatched')
                     ->label(fn () => __('filament-one-time-operations::filament-one-time-operations.column.dispatched'))
                     ->badge()
