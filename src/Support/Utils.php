@@ -38,6 +38,11 @@ class Utils
         return config('filament-one-time-operations.operation_resource.navigation_sort');
     }
 
+    public static function getResourceNavigationIcon(): string
+    {
+        return config('filament-one-time-operations.operation_resource.navigation_icon', 'heroicon-o-queue-list');
+    }
+
     public static function getResourceSlug(): string
     {
         return (string) config('filament-one-time-operations.operation_resource.slug');

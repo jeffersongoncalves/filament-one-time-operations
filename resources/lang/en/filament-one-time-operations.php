@@ -48,7 +48,6 @@ return [
 
     'nav.group' => 'Settings',
     'nav.operation.label' => 'Operation',
-    'nav.operation.icon' => 'heroicon-o-queue-list',
     'resource.label.operation' => 'Operation',
     'resource.label.operations' => 'Operations',
 ];

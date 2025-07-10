@@ -108,7 +108,7 @@ class OperationResource extends Resource
 
     public static function getNavigationIcon(): string
     {
-        return __('filament-one-time-operations::filament-one-time-operations.nav.operation.icon');
+        return Utils::getResourceNavigationIcon();
     }
 
     public static function getNavigationSort(): ?int
