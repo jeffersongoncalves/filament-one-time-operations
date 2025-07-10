@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
+## 1.1.3 - 2025-07-10
+
+### What's Changed
+
+* chore: Configure Renovate by @renovate[bot] in https://github.com/jeffersongoncalves/filament-one-time-operations/pull/3
+* Delete .github/FUNDING.yml by @jeffersongoncalves in https://github.com/jeffersongoncalves/filament-one-time-operations/pull/5
+
+### New Contributors
+
+* @renovate[bot] made their first contribution in https://github.com/jeffersongoncalves/filament-one-time-operations/pull/3
+* @jeffersongoncalves made their first contribution in https://github.com/jeffersongoncalves/filament-one-time-operations/pull/5
+
+**Full Changelog**: https://github.com/jeffersongoncalves/filament-one-time-operations/compare/1.1.2...1.1.3
+
 ## 1.1.2 - 2025-06-19
 
 ### What's Changed
