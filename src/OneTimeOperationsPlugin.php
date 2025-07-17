@@ -4,6 +4,7 @@ namespace JeffersonGoncalves\Filament\OneTimeOperations;
 
 use Filament\Contracts\Plugin;
 use Filament\Panel;
+use JeffersonGoncalves\Filament\OneTimeOperations\Resources\OperationResource;
 use JeffersonGoncalves\Filament\OneTimeOperations\Support\Utils;
 
 class OneTimeOperationsPlugin implements Plugin
@@ -21,7 +22,7 @@ class OneTimeOperationsPlugin implements Plugin
     public function register(Panel $panel): void
     {
         if (! Utils::isResourcePublished($panel)) {
-            $panel->resources([Resources\OperationResource::class]);
+            $panel->resources([OperationResource::class]);
         }
     }
 

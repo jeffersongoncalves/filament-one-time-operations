@@ -12,6 +12,12 @@
 
 This is a Laravel Filament package that provides a One Time Operations functionality for web applications. The package is based on the `timokoerber/laravel-one-time-operations` library, which is used as a dependency to implement this Filament plugin.
 
+## Requirements
+
+- PHP 8.2 or higher
+- Laravel 11.0 or higher
+- Filament 4.0 or higher
+
 ### Key Features
 - Integration with the Laravel Filament framework
 - Admin interface for managing operations that need to be executed only once

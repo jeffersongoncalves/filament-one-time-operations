@@ -2,31 +2,36 @@
 
 namespace JeffersonGoncalves\Filament\OneTimeOperations\Resources;
 
-use Filament\Infolists;
-use Filament\Infolists\Infolist;
+use Filament\Actions\ViewAction;
+use Filament\Infolists\Components\TextEntry;
+use Filament\Panel;
 use Filament\Resources\Resource;
-use Filament\Tables;
+use Filament\Schemas\Components\Section;
+use Filament\Schemas\Schema;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
-use JeffersonGoncalves\Filament\OneTimeOperations\Resources\OperationResource\Pages;
+use JeffersonGoncalves\Filament\OneTimeOperations\Resources\OperationResource\Pages\ListOperations;
+use JeffersonGoncalves\Filament\OneTimeOperations\Resources\OperationResource\Pages\ViewOperation;
 use JeffersonGoncalves\Filament\OneTimeOperations\Support\Utils;
 use TimoKoerber\LaravelOneTimeOperations\Models\Operation;
 
 class OperationResource extends Resource
 {
-    public static function infolist(Infolist $infolist): Infolist
+    public static function infolist(Schema $schema): Schema
     {
-        return $infolist
-            ->schema([
-                Infolists\Components\Section::make()
+        return $schema
+            ->components([
+                Section::make()
                     ->description()
                     ->columns()
                     ->schema([
-                        Infolists\Components\TextEntry::make('name')
+                        TextEntry::make('name')
                             ->label(fn () => __('filament-one-time-operations::filament-one-time-operations.column.name')),
-                        Infolists\Components\TextEntry::make('dispatched')
+                        TextEntry::make('dispatched')
                             ->label(fn () => __('filament-one-time-operations::filament-one-time-operations.column.dispatched'))
                             ->formatStateUsing(fn (Operation $resource) => __('filament-one-time-operations::filament-one-time-operations.values.'.$resource->getAttributeValue('dispatched'))),
-                        Infolists\Components\TextEntry::make('processed_at')
+                        TextEntry::make('processed_at')
                             ->label(fn () => __('filament-one-time-operations::filament-one-time-operations.column.processed_at')),
                     ]),
             ]);
@@ -36,34 +41,34 @@ class OperationResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('name')
+                TextColumn::make('name')
                     ->label(fn () => __('filament-one-time-operations::filament-one-time-operations.column.name')),
-                Tables\Columns\TextColumn::make('dispatched')
+                TextColumn::make('dispatched')
                     ->label(fn () => __('filament-one-time-operations::filament-one-time-operations.column.dispatched'))
                     ->badge()
                     ->formatStateUsing(fn (Operation $resource) => __('filament-one-time-operations::filament-one-time-operations.values.'.$resource->getAttributeValue('dispatched'))),
-                Tables\Columns\TextColumn::make('processed_at')
+                TextColumn::make('processed_at')
                     ->label(fn () => __('filament-one-time-operations::filament-one-time-operations.column.processed_at'))
                     ->dateTime()
                     ->sortable(),
             ])
             ->filters([
-                Tables\Filters\SelectFilter::make('dispatched')
+                SelectFilter::make('dispatched')
                     ->options(fn () => [
                         Operation::DISPATCHED_ASYNC => __('filament-one-time-operations::filament-one-time-operations.values.async'),
                         Operation::DISPATCHED_SYNC => __('filament-one-time-operations::filament-one-time-operations.values.sync'),
                     ]),
             ])
-            ->actions([
-                Tables\Actions\ViewAction::make(),
+            ->recordActions([
+                ViewAction::make(),
             ]);
     }
 
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListOperations::route('/'),
-            'view' => Pages\ViewOperation::route('/{record}'),
+            'index' => ListOperations::route('/'),
+            'view' => ViewOperation::route('/{record}'),
         ];
     }
 
@@ -116,7 +121,7 @@ class OperationResource extends Resource
         return Utils::getResourceNavigationSort();
     }
 
-    public static function getSlug(): string
+    public static function getSlug(?Panel $panel = null): string
     {
         return Utils::getResourceSlug();
     }

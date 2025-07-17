@@ -2,8 +2,8 @@
 
 namespace JeffersonGoncalves\Filament\OneTimeOperations\Resources\OperationResource\Pages;
 
-use Filament\Resources\Components\Tab;
 use Filament\Resources\Pages\ListRecords;
+use Filament\Schemas\Components\Tabs\Tab;
 use Illuminate\Database\Eloquent\Builder;
 use JeffersonGoncalves\Filament\OneTimeOperations\Resources\OperationResource;
 
