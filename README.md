@@ -16,7 +16,7 @@ This is a Laravel Filament package that provides a One Time Operations functiona
 
 - PHP 8.2 or higher
 - Laravel 11.0 or higher
-- Filament 4.0 or higher
+- Filament 5.0
 
 ### Key Features
 - Integration with the Laravel Filament framework
