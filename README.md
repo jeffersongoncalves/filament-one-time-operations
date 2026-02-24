@@ -1,6 +1,6 @@
 <div class="filament-hidden">
 
-![Filament One Time Operations](https://raw.githubusercontent.com/jeffersongoncalves/filament-one-time-operations/master/art/jeffersongoncalves-filament-one-time-operations.png)
+![Filament One Time Operations](https://raw.githubusercontent.com/jeffersongoncalves/filament-one-time-operations/2.x/art/jeffersongoncalves-filament-one-time-operations.png)
 
 </div>
 
