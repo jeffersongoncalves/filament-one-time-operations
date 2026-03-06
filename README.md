@@ -9,6 +9,7 @@
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/jeffersongoncalves/filament-one-time-operations.svg?style=flat-square)](https://packagist.org/packages/jeffersongoncalves/filament-one-time-operations)
 [![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/jeffersongoncalves/filament-one-time-operations/fix-php-code-style-issues.yml?branch=master&label=code%20style&style=flat-square)](https://github.com/jeffersongoncalves/filament-one-time-operations/actions?query=workflow%3A"Fix+PHP+code+styling"+branch%3Amaster)
 [![Total Downloads](https://img.shields.io/packagist/dt/jeffersongoncalves/filament-one-time-operations.svg?style=flat-square)](https://packagist.org/packages/jeffersongoncalves/filament-one-time-operations)
+[![License](https://img.shields.io/packagist/l/jeffersongoncalves/filament-one-time-operations.svg?style=flat-square)](LICENSE.md)
 
 This is a Laravel Filament package that provides a One Time Operations functionality for web applications. The package is based on the `timokoerber/laravel-one-time-operations` library, which is used as a dependency to implement this Filament plugin.
 
