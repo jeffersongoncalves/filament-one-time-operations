@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file.
 
+## 1.2.0 - 2026-09-23
+
+### What's new
+
+- **Translations:** 16 new locales (ar, az, de, fa, fr, hi, it, ja, nl, pl, pt, ru, tr, uk, uz, zh_CN). (#29)
+
+Thanks to @Elvin-Qulizade (Elvin Qulizada) for the i18n initiative behind these translations — first contributed in jeffersongoncalves/filament-scanner-guard#2 and now rolled out across the Filament plugins. He is credited as co-author.
+
+### What's Changed
+
+* Delete renovate.json by @jeffersongoncalves in https://github.com/jeffersongoncalves/filament-one-time-operations/pull/6
+* docs: add Buy Me a Coffee sponsor link by @jeffersongoncalves in https://github.com/jeffersongoncalves/filament-one-time-operations/pull/18
+* chore: add Buy Me a Coffee to FUNDING.yml by @jeffersongoncalves in https://github.com/jeffersongoncalves/filament-one-time-operations/pull/21
+* ci: standardize update-changelog workflow (1.x) by @jeffersongoncalves in https://github.com/jeffersongoncalves/filament-one-time-operations/pull/23
+* build(deps): bump the actions-deps group with 4 updates by @dependabot[bot] in https://github.com/jeffersongoncalves/filament-one-time-operations/pull/28
+* feat(i18n): add translations (1.x) by @jeffersongoncalves in https://github.com/jeffersongoncalves/filament-one-time-operations/pull/29
+
+**Full Changelog**: https://github.com/jeffersongoncalves/filament-one-time-operations/compare/1.1.3...1.2.0
+
 ## 1.1.3 - 2025-07-10
 
 ### What's Changed
