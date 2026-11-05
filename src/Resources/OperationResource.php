@@ -7,6 +7,7 @@ use Filament\Infolists\Infolist;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
+use JeffersonGoncalves\Filament\OneTimeOperations\OneTimeOperationsPlugin;
 use JeffersonGoncalves\Filament\OneTimeOperations\Resources\OperationResource\Pages;
 use JeffersonGoncalves\Filament\OneTimeOperations\Support\Utils;
 use TimoKoerber\LaravelOneTimeOperations\Models\Operation;
@@ -54,9 +55,23 @@ class OperationResource extends Resource
                         Operation::DISPATCHED_SYNC => __('filament-one-time-operations::filament-one-time-operations.values.sync'),
                     ]),
             ])
-            ->actions([
-                Tables\Actions\ViewAction::make(),
-            ]);
+            ->actions(static::getRecordActions(), position: OneTimeOperationsPlugin::get()?->getRecordActionsPosition());
+    }
+
+    /**
+     * @return array<Tables\Actions\Action|Tables\Actions\ActionGroup>
+     */
+    protected static function getRecordActions(): array
+    {
+        $actions = [
+            Tables\Actions\ViewAction::make(),
+        ];
+
+        if (OneTimeOperationsPlugin::get()?->shouldGroupRecordActions()) {
+            return [Tables\Actions\ActionGroup::make($actions)];
+        }
+
+        return $actions;
     }
 
     public static function getPages(): array

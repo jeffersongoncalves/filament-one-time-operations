@@ -55,6 +55,18 @@ use JeffersonGoncalves\Filament\OneTimeOperations\OneTimeOperationsPlugin;
 ])
 ```
 
+### Record actions
+
+Group the resource table's record actions in a dropdown and/or change their position (both accept a `Closure`; defaults keep the table's behavior):
+
+```php
+use Filament\Tables\Enums\ActionsPosition;
+
+OneTimeOperationsPlugin::make()
+    ->groupRecordActions()
+    ->recordActionsPosition(ActionsPosition::BeforeColumns),
+```
+
 ## Testing
 
 ```bash
