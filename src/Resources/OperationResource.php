@@ -2,6 +2,8 @@
 
 namespace JeffersonGoncalves\Filament\OneTimeOperations\Resources;
 
+use Filament\Actions\Action;
+use Filament\Actions\ActionGroup;
 use Filament\Actions\ViewAction;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Panel;
@@ -11,6 +13,7 @@ use Filament\Schemas\Schema;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
+use JeffersonGoncalves\Filament\OneTimeOperations\OneTimeOperationsPlugin;
 use JeffersonGoncalves\Filament\OneTimeOperations\Resources\OperationResource\Pages\ListOperations;
 use JeffersonGoncalves\Filament\OneTimeOperations\Resources\OperationResource\Pages\ViewOperation;
 use JeffersonGoncalves\Filament\OneTimeOperations\Support\Utils;
@@ -59,9 +62,23 @@ class OperationResource extends Resource
                         Operation::DISPATCHED_SYNC => __('filament-one-time-operations::filament-one-time-operations.values.sync'),
                     ]),
             ])
-            ->recordActions([
-                ViewAction::make(),
-            ]);
+            ->recordActions(static::getRecordActions(), position: OneTimeOperationsPlugin::get()?->getRecordActionsPosition());
+    }
+
+    /**
+     * @return array<Action|ActionGroup>
+     */
+    protected static function getRecordActions(): array
+    {
+        $actions = [
+            ViewAction::make(),
+        ];
+
+        if (OneTimeOperationsPlugin::get()?->shouldGroupRecordActions()) {
+            return [ActionGroup::make($actions)];
+        }
+
+        return $actions;
     }
 
     public static function getPages(): array
