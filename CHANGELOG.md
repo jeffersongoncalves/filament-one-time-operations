@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## 3.2.0 - 2026-11-05
+
+### What's Changed
+
+- Configurable record actions: `OneTimeOperationsPlugin::make()->groupRecordActions()->recordActionsPosition(RecordActionsPosition::BeforeColumns)` groups the resource table's record actions in an `ActionGroup` and sets their position. Defaults unchanged. (#46, #47)
+
 ## 3.1.0 - 2026-09-23
 
 ### What's new
