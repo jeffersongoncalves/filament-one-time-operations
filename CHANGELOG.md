@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## 2.2.0 - 2026-11-05
+
+### What's Changed
+
+- Configurable record actions: `groupRecordActions()` and `recordActionsPosition(RecordActionsPosition)` on the plugin. Defaults unchanged. (#46, #48)
+
 ## 2.1.0 - 2026-09-23
 
 ### What's new
